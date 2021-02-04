@@ -1,5 +1,5 @@
 import keras
-from keras.layers import Input, Conv2D, MaxPool2D, Dense, Activation, Flatten, AveragePooling2D
+from keras.layers import Input, Conv2D, MaxPool2D, Dense, Activation, Flatten, AveragePooling2D, Deconvolution2D, Permute
 from keras.models import Model, Sequential 
 from keras.optimizers import Adam 
 from keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint
@@ -37,6 +37,9 @@ def model():
     x = Conv2D(128, (3,3), padding='same')(x)
     x = pooling((2,2))(x)
     x = Activation("relu")(x)
+
+    # x = Permute((3,2,1))(x)
+    # x = Permute((3,2,1))(x)
 
     x = Flatten()(x)
     x = Dense(10)(x)
@@ -80,4 +83,8 @@ if __name__ == "__main__":
     callbacks = [save_weights, reduce_lr]
     model.fit(x_train, y_train, epochs = 100, batch_size=32, 
               validation_data = (x_test, y_test), callbacks=callbacks)
+
+    model.fit_generator(data, epochs=5, steps_per_epoch=(len(train_x)//bSize+1), 
+              validation_data=[test_x, test_y], shuffle=True)
+
 

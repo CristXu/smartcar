@@ -17,7 +17,7 @@ if __name__ == "__main__":
                 if ( extension == '.jpg'):
                     img = cv.imread(os.path.join(path, f))
                     try:
-                        img = cv.resize(img, (32,32))
+                        img = cv.resize(img, (32,32))[...,(2,1,0)] # opencv read as bgr, but we need rgb
                         all_data.append(img)
                         all_label.append(i)
                     except:

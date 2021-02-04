@@ -21,25 +21,25 @@ from keras.datasets import cifar10, cifar100
 (x, y),(_,_) = cifar100.load_data() 
 pos = np.where(np.ravel(y) == 19)
 casttle = x[pos]
-np.save("./picture/4/casttle.npy", casttle[:500,:,:,(2,1,0)])
+np.save("./picture/4/casttle.npy", casttle[:500])
 
 pos = np.where(np.ravel(y) == 0)
 apple = x[pos]
-np.save("./picture/5/apple.npy", apple[:500,:,:,(2,1,0)])
+np.save("./picture/5/apple.npy", apple[:500])
 
 (x, y),(_,_) = cifar10.load_data() 
 
 pos = np.where(np.ravel(y) == 3)
 cat = x[pos]
-np.save("./picture/0/cat.npy", cat[:500,:,:,(2,1,0)])
+np.save("./picture/0/cat.npy", cat[:500])
 
 pos = np.where(np.ravel(y) == 5)
 dog = x[pos]
-np.save("./picture/1/dog.npy", dog[:500,:,:,(2,1,0)])
+np.save("./picture/1/dog.npy", dog[:500])
 
 pos = np.where(np.ravel(y) == 7)
 horse = x[pos]
-np.save("./picture/2/horse.npy", horse[:500,:,:,(2,1,0)])
+np.save("./picture/2/horse.npy", horse[:500])
 
 keywords = ["猫", "狗", "马", "猪", "牛"] + ["苹果", "橘子", "香蕉", "榴莲", "葡萄"]
 total_num = 600

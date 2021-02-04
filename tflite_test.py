@@ -54,7 +54,7 @@ if __name__ == "__main__":
     data = data[seed]
     label = label[seed]
 
-    result_tf = run_tflite_model(r"./models/model_22_0.6979_quant.tflite", data)
+    result_tf = run_tflite_model(r"./models/model_11_0.6651_quant.tflite", data)
     acc_tf = (result_tf == label).sum() / len(label)
 
     result_keras = run_keras_model(r"./models/model_22_0.6979.h5", data)

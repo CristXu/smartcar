@@ -13,7 +13,7 @@ tf.enable_v2_behavior()
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser() 
-    parser.add_argument('-model', help='model to be converted', default='./models/model_22_0.6979.h5',type=str)
+    parser.add_argument('-model', help='model to be converted', default='./models/model_20_0.6897.h5',type=str)
     parser.add_argument('-d', '--data', help='represent data', type=str, default=r'./x.npy')
     parser.add_argument('-q', '--quant', help='quant model', action='store_true', default=True) #choices=['int8', 'u8', 'f16'], 
     parser.add_argument('-n', '--num', help='how many datas as the represent data', type=int, default=10)
